@@ -1,0 +1,26 @@
+color_XXX.jsx
+
+----------
+
+This script sets color of the selection to the desired swatch color
+It will change the colors of:
+- images (bitmaps)
+- polygons (vectorforms)
+- rectangles (basic boxes)
+- paragraphs (all text in the selected paraphs)
+- rulers above text
+- rulers below text
+
+----------
+
+PREREQUISITES:
+
+1. Just a selection
+
+----------
+
+USAGE:
+
+Select an object on your page and hit "RUN".
+it calls a dialog with all the existing swatch colors in the active document
+

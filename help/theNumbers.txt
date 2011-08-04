@@ -1,0 +1,31 @@
+theNumbers.jsx
+
+----------
+
+This tiny dialouge makes the numbers positioned on the images in the layout for the JM catalouge 2011-2.
+
+----------
+
+PREREQUISITES:
+
+1. You need the font JM Bertram Symbol
+2. You need the paragraph style called "LAUFNUMMER_am_Bild"
+
+if this style doesn't exist it will try to format the text "manually"
+if the font doesn't exist it will fall back to the basic font
+
+----------
+
+USAGE:
+
+First Dropdown Numbers:
+Select the amount of numbers you need. It only goes up to 30 because the font only holds that much numbers
+
+Second Dropdown Page:
+Select the page where the numbers should be build.
+
+Button OK:
+Builds the numbers on the selected page
+
+Button Cancel:
+Cancel the execution.

@@ -1,0 +1,25 @@
+color_KEY.jsx
+
+----------
+
+This script sets color of the selection to KEY [C= 0, M = 0, Y = 0, K = 100]
+It will change the colors of:
+- images (bitmaps)
+- polygons (vectorforms)
+- rectangles (basic boxes)
+- paragraphs (all text in the selected paraphs)
+- rulers above text
+- rulers below text
+
+----------
+
+PREREQUISITES:
+
+1. Just a selection
+
+----------
+
+USAGE:
+
+Select an object on your page and hit "RUN".
+

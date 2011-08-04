@@ -1,0 +1,23 @@
+theFindChange.jsx
+
+----------
+
+This script does the basic find change operations for the JM catalouge 2011-2.
+
+----------
+
+PREREQUISITES:
+
+1. You need the find change queries
+On Windows XP, for example, this is here:
+	"%USERHOME%\Application Data\Adobe\InDesign\Version x.y\en_US\Find-Change Queries"
+On Macintosh, for example, this  is:
+	"~/Library/Preferences/Adobe InDesign/Version x.y/en_US/Find-Change Queries"
+These can be installed via the "Restore FC Queries" Option (coming soon)
+
+
+----------
+
+USAGE:
+
+This script has no UI just hit "RUN"

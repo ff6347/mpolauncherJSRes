@@ -1,0 +1,22 @@
+clearStructure.jsx
+
+----------
+
+This script cleans the the xml structure of the document.
+It will try to untag all elements first, but beware you could loose content
+
+----------
+
+PREREQUISITES:
+
+1. You need "glue code.jsx" in the folder "meta" within the "MPO Launcher"
+if this file does not exist you can:
+- use the function that copies the script files to the "Scripts Panel" (see the plugin help coming soon)
+- get it from the internet here --> http://tinyurl.com/3ze5vgu
+- or here --> " soon to come MPO Launcher git repo"
+
+----------
+
+USAGE:
+
+This script has no user interface. Just click "RUN" it will clear out your xml structure
