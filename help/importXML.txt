@@ -1,0 +1,22 @@
+importXML.jsx
+
+----------
+
+This script is the main importer.
+
+It won't work without the right 
+	xml file,
+	the layout,
+	the paragraph styles,
+	the setupStyles.jsx in the folder /meta 
+	the processXML.jsx in the folder /meta
+	the glue code.jsx in the folder /meta
+	the images referenced within the xml file
+	contact us for more info on the mpo project
+	info@the-moron.net
+	
+
+----------
+
+USAGE:
+See the Screencast @ coming soon

@@ -26,7 +26,13 @@ written by fabiantheblind 4 JM-2011
 main();
 function main() {
 
-	var doc = app.activeDocument;
+	var doc;
+	// test for a doc
+	try { var doc = app.activeDocument; } catch(e){
+		alert("No no no, you have no document.\nMaybe you should drink some coffee");
+		return;
+		}
+			
 	// var myList;
 	// var myPageName;
 	// var myPage ;

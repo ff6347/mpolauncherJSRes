@@ -232,7 +232,7 @@ app.activeDocument.changeGrep();
 
 
 
-		if(!logfilebool){
+		if(logfilebool == true){
 		var myFile = myLogFile;   
 		var myData = myErrorLog;
 		writeData (myFile, myData );

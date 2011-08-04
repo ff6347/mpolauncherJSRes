@@ -1,0 +1,29 @@
+theLinkButton.jsx
+
+----------
+
+This script builds the "Link Button" for the JM Layout
+
+----------
+
+PREREQUISITES:
+
+1. Needs an imported MPO xml structure. Use the importer
+
+----------
+
+USAGE:
+
+USAGE:
+
+First Dropdown Article:
+Select the article you want to feature
+
+Second Dropdown Page:
+Select the page where the numbers should be build.
+
+Button OK:
+Builds the Link Button
+
+Button Cancel:
+Cancel the execution.
