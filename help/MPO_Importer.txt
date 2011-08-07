@@ -1,4 +1,4 @@
-importXML.jsx
+MPO_Importer.jsx
 
 ----------
 
@@ -9,7 +9,7 @@ It won't work without the right
 	the layout,
 	the paragraph styles,
 	the setupStyles.jsx in the folder /meta 
-	the processXML.jsx in the folder /meta
+	the processXML_v02.jsx in the folder /meta
 	the glue code.jsx in the folder /meta
 	the images referenced within the xml file
 	contact us for more info on the mpo project
