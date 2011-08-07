@@ -2,37 +2,90 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>currentDocument</key>
+	<string>meta/processXML_v02.jsx</string>
 	<key>documents</key>
 	<array>
 		<dict>
 			<key>filename</key>
 			<string>meta/processXML.jsx</string>
 			<key>lastUsed</key>
-			<date>2011-08-07T13:21:23Z</date>
+			<date>2011-08-07T16:49:14Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>meta/setupStyles.jsx</string>
 			<key>lastUsed</key>
-			<date>2011-08-07T13:21:23Z</date>
+			<date>2011-08-07T19:42:15Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>meta/processXML_v02.jsx</string>
 			<key>lastUsed</key>
-			<date>2011-08-07T13:21:23Z</date>
+			<date>2011-08-07T20:00:08Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>MPO_Importer.jsx</string>
-			<key>selected</key>
-			<true/>
+			<key>lastUsed</key>
+			<date>2011-08-07T20:00:08Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>247</integer>
 	<key>metaData</key>
-	<dict/>
+	<dict>
+		<key>MPO_Importer.jsx</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>8</integer>
+				<key>line</key>
+				<integer>456</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>403</integer>
+		</dict>
+		<key>meta/processXML_v02.jsx</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>37</integer>
+				<key>line</key>
+				<integer>972</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>963</integer>
+		</dict>
+		<key>meta/setupStyles.jsx</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>openDocuments</key>
+	<array>
+		<string>meta/processXML_v02.jsx</string>
+		<string>meta/setupStyles.jsx</string>
+		<string>MPO_Importer.jsx</string>
+	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>

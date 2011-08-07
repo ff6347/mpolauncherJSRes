@@ -162,6 +162,8 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 			
 			metaData.scrptLabel = myElement.xmlAttributes.item("iArtikelNr").value;
 			metaData.ArtNr = metaData.scrptLabel;
+			metaData.scp = myElement.xmlAttributes.item("iPrioritaet").value.toString();
+			metaData.id;
 			
 			var id;
 			var myParentGroup;
@@ -207,6 +209,7 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 			// tets where on the page we are
 			try{
 			var myTestFrame = myPage.rectangles.add();
+			set_label(myTestFrame,"Delete Me");
 			var myTestBounds = new Array;
 			myTestBounds = prcs_myGetColumns(myDoc,myPage,itemCounter);
 
@@ -223,7 +226,8 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 				myPage = myDoc.pages.add();
 				itemCounter = 0;
 				myLine = 0;
-				alert("made a new Page");
+				
+				//alert("made a new Page");
 
 			}
 			myTestFrame.remove();
@@ -367,7 +371,7 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 
 			var myFocusText = myPage.textFrames.add();
 			//set the Script label
-			set_label(myFocusText, metaData.scrptLabel);	
+			set_label(myFocusText, "meta: grp-" +metaData.id + " scp-"+ metaData.scp );	
 			try{
 			myFocusText.applyObjectStyle(myNullObjStyle);
 			}catch(e){
@@ -386,7 +390,7 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 			
 			var myGrText = myPage.textFrames.add();
 			//set the Script label
-			set_label(myGrText, metaData.scrptLabel);
+			set_label(myGrText,  "meta: grp-" +metaData.id + " scp-"+ metaData.scp );
 			myGrText.appliedObjectStyle = myDoc.objectStyles.item(0);
 			try{
 			myGrText.applyObjectStyle(myNullObjStyle);
@@ -412,8 +416,10 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 			mySubGroup.push(myGrText);
 
 			var subMetaGroup = myPage.groups.add(mySubGroup);
+			set_label(subMetaGroup, "meta: grp-" +metaData.id + " scp-"+ metaData.scp );
 			try{
 			var objGroup = myPage.groups.add(myGroup);
+			set_label(objGroup,metaData.scrptLabel);
 			objGroup.sendToBack();
 			}catch(e){
 				errorLog = errorLog + e.toString() + "\n";
@@ -422,7 +428,7 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 			finalGroup.push(subMetaGroup);
 			finalGroup.push(objGroup);
 			myPage.groups.add(finalGroup);
-
+			set_label(finalGroup,metaData.scrptLabel);
 			
 			
 			itemCounter++;
@@ -582,6 +588,7 @@ function prcs_findTables(myDoc,myNewPage,count,itemCounter){
 		var Y2 =  Y1 + 50;
 		var X2 =X1 + 123;
 		var myFrame = myNewPage.textFrames.add();
+		set_label(myFrame,"table: grp-" + count );
 //		myFrame.appliedObjectStyle = myDoc.objectStyles.item(0);
 		var myNullObjStyle  = myDoc.objectStyles.item(0);
 		try{
@@ -607,6 +614,7 @@ function prcs_findTables(myDoc,myNewPage,count,itemCounter){
 
 		
 		var myFocusText = myNewPage.textFrames.add();
+		set_label(myFocusText,"table: grp-"+count + " scp-focus");
 		myFocusText.geometricBounds  = [Y1,X1,Y2-20,X2-100];
 		myFocusText.texts.everyItem().appliedCharacterStyle = myDoc.characterStyles.item("ERROR");
 		myFocusText.paragraphs.everyItem().appliedParagraphStyle = myDoc.paragraphStyles.item("ERROR");
@@ -617,6 +625,8 @@ function prcs_findTables(myDoc,myNewPage,count,itemCounter){
 		mySubGroup.push(myFocusText);
 		
 		var myGrText = myNewPage.textFrames.add();
+		set_label(myGrText,"table: grp-"+count);
+		
 		myGrText.geometricBounds  = [Y1+1,X1+1,Y2-1-20,X2-1-100];
 		myGrText.contents = count+". Gruppe"+"\n" + myElement.parent.markupTag.name.toString();
 		myGrText.nonprinting = true;
@@ -633,7 +643,7 @@ function prcs_findTables(myDoc,myNewPage,count,itemCounter){
 		myGroup.push(mySubMetaGroup);
 		myGroup.push(myFrame);
 		myNewPage.groups.add(myGroup);
-
+		
 		itemCounter++;
 		};
 
@@ -960,6 +970,7 @@ function prcs_findItemsNumber(myDoc){
 	
 
 	var myPrice = FondItem[0].parent.textContainers[0].duplicate();
+	set_label(myPrice,myTempArtNrString + " price");
 	myPrice.geometricBounds = myGeoBounds;
 	myPrice.paragraphs.everyItem().remove();
 	var myPriceElement= myElement.xmlElements.item("preis").duplicate();

@@ -31,9 +31,19 @@ function main() {
 		alert("You need to import an xml with the importer");
 		return;
 	}
-	for (var i =0 ;i < myItemsListElement.xmlElements.length;i++){
-		myItemsList[i] = myItemsListElement.xmlElements.item(i).markupTag.name;	
+	try{
+		
+		for (var i =0 ;i < myItemsListElement.xmlElements.length;i++){
+			myItemsList[i] = myItemsListElement.xmlElements.item(i).markupTag.name;	
+		}
+			
+	}catch(e){
+		
+		alert("you have no xml structure.\nuse the MPO_Importer");
+		return;
+		
 	}
+
 	
 	myUI(d, myPage,myPageName, myList,myItemsList);
 
@@ -111,6 +121,7 @@ function makeButton(theItem, myPage, d){
 		var OY2 = OY1 + 30;
 		var OX2 = OX1 + 30;
 		var myOV01 = myPage.ovals.add();
+		set_label(myOV01,"Art-Nr. " + theItem);
 		with (myOV01) {
 			geometricBounds = [OY1, OX1 ,OY2 , OX2];
 			applyObjectStyle(myNullObjStyle);	
@@ -139,6 +150,7 @@ function makeButton(theItem, myPage, d){
 		var RX2 = RX1 + 84.279;
 				
 		var myRect01 = myPage.rectangles.add();
+				set_label(myRect01,"Art-Nr. " + theItem);
 		with (myRect01) {
 			geometricBounds = [RY1, RX1, RY2, RX2];
 			applyObjectStyle(myNullObjStyle);
@@ -165,6 +177,8 @@ function makeButton(theItem, myPage, d){
 		
 		
 		var myTF01 = myPage.textFrames.add();
+		set_label(myTF01,"Art-Nr. " + theItem);
+		
 		with (myTF01) {
 			geometricBounds = [TY1, TX1, TY2, TX2];
 			applyObjectStyle(myNullObjStyle);
@@ -204,6 +218,8 @@ function makeButton(theItem, myPage, d){
 		var PX2 =  PX1 + 50;
 		
 		var myPF01 = myPage.textFrames.add();
+		set_label(myPF01,"Art-Nr. " + theItem);
+		
 		with (myPF01) {
 			geometricBounds = [PY1, PX1, PY2, PX2];
 			applyObjectStyle(myPriceObjStyle);
@@ -318,4 +334,18 @@ function myUI(d, myPage,myPageName, myList,myItemsList){
 	}
 
 	}	  
+}
+
+
+function set_label(obj,str){
+	try{
+		
+		obj.label = str;
+		
+	}catch(e){
+		
+		
+	}
+	
+	
 }

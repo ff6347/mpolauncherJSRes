@@ -1,0 +1,28 @@
+theImagePlacer.jsx
+
+----------
+
+This script imports all images referenced in the xml structutre that comes from the MPO
+
+----------
+
+PREREQUISITES:
+
+1. Needs an imported MPO xml structure. Use the importer
+
+----------
+
+USAGE:
+
+First Dropdown Item:
+Select the article you want to place
+
+Second Dropdown Page:
+Select the page where the images should be placed
+if you disable this function it creates a new page
+
+Button OK:
+Builds the Link Button
+
+Button Cancel:
+Cancel the execution.

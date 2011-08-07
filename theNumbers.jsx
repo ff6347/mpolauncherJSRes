@@ -88,6 +88,7 @@ function makeNumbers(myDoc,myPage,theNumber,obj){
 		
 			var myGroup = new Array;
 		var myRect =  myPage.rectangles.add();
+	//	set_label(myRect,"Num: "+ theNumber + " Key: " + obj.strings[i]);
 		myRect.applyObjectStyle( myDoc.objectStyles.item(0));
 			with(myRect){
 				geometricBounds = [myRY1 + theRow , myRX1 + theValue, myRY2 + theRow ,myRX2 + theValue];
@@ -99,6 +100,7 @@ function makeNumbers(myDoc,myPage,theNumber,obj){
 			myGroup.push(myRect);
 
 			var myTF =  myPage.textFrames.add();
+		//set_label(myTF,"Num: "+ i + " Key: " + obj.strings[i]);
 			myTF.applyObjectStyle( myDoc.objectStyles.item(0));
 			
 			with(myTF){
@@ -197,4 +199,17 @@ function myUI(myDoc,myPageName,obj){
  }
 
 	}	  
+}
+
+function set_label(obj,str){
+	try{
+		
+		obj.label = str;
+		
+	}catch(e){
+		
+		
+	}
+	
+	
 }

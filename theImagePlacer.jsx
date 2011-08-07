@@ -6,28 +6,64 @@ written by fabiantheblind 4 JM-2011
 main();
 function main() {
 
-	var myDoc = app.activeDocument;
+	
+	var d;
+	// test for a doc
+	try { var d = app.activeDocument; } catch(e){
+		alert("No no no, you have no document.\nMaybe you should drink some coffee");
+		return;
+		}
+		
+		
 	var myItemsList = new Array;
 	var myList;
 	var myPageName;
 	var myPage;
 
-	myList = myDoc.pages.everyItem().name;
+	myList = d.pages.everyItem().name;
 
-	var myItemsListElement =  myDoc.xmlElements.item(0).xmlElements.item("itemsList");
+	try{
+	var myItemsListElement =  d.xmlElements.item(0).xmlElements.item("itemsList");
+	}catch(e){
+		
+		alert("you have no xml structure.\nuse the MPO_Importer");
+		return;
+		
+	}
+	try{
+	
 	for (var i =0 ;i < myItemsListElement.xmlElements.length;i++){
 		myItemsList[i] = myItemsListElement.xmlElements.item(i).markupTag.name;	
 	}
+	}catch(e){
+		
+		alert("you have no xml structure.\nuse the MPO_Importer");
+		return;
+		
+	}
+
 	
-	myUI(myDoc, myPage,myPageName, myList,myItemsList);
+	myUI(d, myPage,myPageName, myList,myItemsList);
 
 
 
 }
 
-function myGetColumns(myDocument, myPage){
-	var myPageWidth = myDocument.documentPreferences.pageWidth;
-	var myPageHeight = myDocument.documentPreferences.pageHeight
+
+function set_label(obj,str){
+	try{
+		
+		obj.label = str;
+		
+	}catch(e){
+		
+		
+	}
+}
+
+function myGetColumns(dument, myPage){
+	var myPageWidth = dument.documentPreferences.pageWidth;
+	var myPageHeight = dument.documentPreferences.pageHeight
 	var myPageColumnCount= myPage.marginPreferences.columnCount;
 	var myPageColumnGutterWidth= myPage.marginPreferences.columnGutter;
 
@@ -41,9 +77,10 @@ function myGetColumns(myDocument, myPage){
 	return [myY1, myX1, myY2, myX2];
 }
 
-function myGetBounds(myDocument, myPage){
-	var myPageWidth = myDocument.documentPreferences.pageWidth;
-	var myPageHeight = myDocument.documentPreferences.pageHeight
+
+function myGetBounds(dument, myPage){
+	var myPageWidth = dument.documentPreferences.pageWidth;
+	var myPageHeight = dument.documentPreferences.pageHeight
 	if(myPage.side == PageSideOptions.leftHand){
 		var myX2 = myPage.marginPreferences.left;
 		var myX1 = myPage.marginPreferences.right;
@@ -59,9 +96,9 @@ function myGetColumns(myDocument, myPage){
 }
 
 
-function placeData(myDoc , myPage , theItem){
-	var myRuleSet = new Array(new placeImages(theItem, myPage, myDoc));
-	with(myDoc){
+function placeData(d , myPage , theItem){
+	var myRuleSet = new Array(new placeImages(theItem, myPage, d));
+	with(d){
 	var elements = xmlElements;
 	__processRuleSet(elements.everyItem(), myRuleSet);
 	}
@@ -69,18 +106,18 @@ function placeData(myDoc , myPage , theItem){
 	
 }
 
-function placeImages(theItem, myPage, myDoc){
+function placeImages(theItem, myPage, d){
 	this.name = "placeImages";
 	this.xpath = "//artikel[@iArtikelNr='Art-Nr. "+theItem +"']";
 	this.apply = function(myElement, myRuleProcessor){
 	
-	var myNullObjStyle  = myDoc.objectStyles.item(0);
+	var myNullObjStyle  = d.objectStyles.item(0);
 
 	var myImages = myElement.xmlElements.item("images");
 	var myGroup = new Array;
 
 	var myTempBounds = new Array;
-	myTempBounds =  myGetColumns(myDoc, myPage);
+	myTempBounds =  myGetColumns(d, myPage);
 	var myY1 = myTempBounds[0];
 	var myX1 = myTempBounds[1];
 	var myY2 = myTempBounds[2];
@@ -91,7 +128,9 @@ function placeImages(theItem, myPage, myDoc){
 	
 	
 		var myImgFrame = myPage.rectangles.add();
-		//myImgFrame.appliedObjectStyle = myDoc.objectStyles.item(0);
+
+		set_label(myImgFrame, "Art-Nr. "+theItem);
+		//myImgFrame.appliedObjectStyle = d.objectStyles.item(0);
 	
 	
 				try{
@@ -110,7 +149,7 @@ function placeImages(theItem, myPage, myDoc){
 //						alert("WARNING! \r THERE IS  AN IMAGE MISSING! " +e );
 					
 						myImgFrame.geometricBounds = [myY1+(i*10),myX1,myY2+(i*10),myX2];
-						myImgFrame.fillColor = myDoc.swatches.item(2);
+						myImgFrame.fillColor = d.swatches.item(2);
 						myImgFrame.fillTint = 42;
 						myGroup.push(myImgFrame);
 
@@ -121,18 +160,23 @@ function placeImages(theItem, myPage, myDoc){
 			}
 			
 		var myBG = myPage.rectangles.add();
+		set_label(myBG, "Delete me");
+		
 		with(myBG){
 		geometricBounds = [myY1,myX1,20,myX2];
-		fillColor = myDoc.swatches.item(1);
+		fillColor = d.swatches.item(1);
 		applyObjectStyle(myNullObjStyle);
 
 	}
 		//	myBG.fit(FitOptions.FRAME_TO_CONTENT);
 		
-		//	myUlFrame.appliedObjectStyle = myDoc.objectStyles.item(0);
+		//	myUlFrame.appliedObjectStyle = d.objectStyles.item(0);
 		//	myUlFrame.applyObjectStyle(myNullObjStyle);
 
 		var myTextFrame = myPage.textFrames.add();
+		set_label(myTextFrame, "Delete me");
+		myTextFrame.nonprinting = true;
+		
 	with(myTextFrame){
 		geometricBounds = [myY1,myX1,myY2,myX2];
 		applyObjectStyle(myNullObjStyle);
@@ -146,15 +190,15 @@ function placeImages(theItem, myPage, myDoc){
 	}
 	
 	
-		myTextFrame.paragraphs.everyItem().appliedParagraphStyle = myDoc.paragraphStyles.item("ERROR");
-		myTextFrame.paragraphs.everyItem().characters.everyItem().appliedCharacterStyle = myDoc.characterStyles.item("ERROR");
+		myTextFrame.paragraphs.everyItem().appliedParagraphStyle = d.paragraphStyles.item("ERROR");
+		myTextFrame.paragraphs.everyItem().characters.everyItem().appliedCharacterStyle = d.characterStyles.item("ERROR");
 		myTextFrame.fit(FitOptions.FRAME_TO_CONTENT);
 		myGroup.push(myBG);
 		myGroup.push(myTextFrame);
 
 		
 		myPage.groups.add(myGroup);
-
+		
 
 			
 		};
@@ -191,7 +235,8 @@ function checkOS(myString){
 	}
 
 }
-function myUI(myDoc, myPage,myPageName, myList,myItemsList){
+
+function myUI(d, myPage,myPageName, myList,myItemsList){
 	var myNumOItems = 0;
 	
 	var myDialog = app.dialogs.add({name:"PLACE ALL IMAGES", canCancel:true});
@@ -253,7 +298,7 @@ function checkOS(myString){
 //		var myPageName;
 //		page selector box
 		if(pageSelector.checkedState!=true ){
-			myPage = myDoc.pages.add();
+			myPage = d.pages.add();
 			myPageName = myPage.name;
 		}else {
 //			myPage = myList[myPageDropdown.selectedIndex];
@@ -261,13 +306,14 @@ function checkOS(myString){
 		}
 
 		var preTheItem = myItemsList[myArtikelDropdown.selectedIndex];
+		alert(preTheItem);
 		var theItem = preTheItem.substring(4);
 
 		myDialog.destroy();
 		
- 		myPage = myDoc.pages.item(myPageName);
+ 		myPage = d.pages.item(myPageName);
 		
-		placeData(myDoc,myPage,theItem);
+		placeData(d,myPage,theItem);
 
 
 

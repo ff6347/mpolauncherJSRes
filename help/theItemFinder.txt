@@ -1,0 +1,24 @@
+theItemFinder.jsx
+
+----------
+
+This script looks for script labels and marks the found item with an oval.
+you can write them yourself. Its a bit experimental
+
+----------
+
+PREREQUISITES:
+
+1. Looks for script labels.
+----------
+
+USAGE:
+
+First Dropdown Label:
+Select the thing you want to find
+
+Button OK:
+Builds the Link Button
+
+Button Cancel:
+Cancel the execution.

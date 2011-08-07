@@ -14,8 +14,6 @@ PREREQUISITES:
 
 USAGE:
 
-USAGE:
-
 First Dropdown Article:
 Select the article you want to feature
 
