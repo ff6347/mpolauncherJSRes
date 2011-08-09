@@ -46,6 +46,8 @@ var choice;
 var marker;
 var select;
 var rmvLabel;
+var edit;
+var editStr;
 
 for( var i = 0; i < api.length; i++ ){
 	
@@ -78,6 +80,9 @@ with(dlg) {
 			with(dialogRows.add()){
 			var addMarkerChkBx = checkboxControls.add({checkedState:true, staticLabel:"add marker 2 items?"});
 			}
+			// with(dialogRows.add()){
+			// 		staticTexts.add({staticLabel: "              "});
+			// 		}
 			with(dialogRows.add()){
 			var add2SelChkBx = checkboxControls.add({checkedState:false, staticLabel:"add items to selection?"});
 			}
@@ -87,6 +92,20 @@ with(dlg) {
 			with(dialogRows.add()){
 			var rmvItemLblChkBx = checkboxControls.add({checkedState:false, staticLabel:"remove selected labels?"});
 			}
+			// with(dialogRows.add()){
+			// 		staticTexts.add({staticLabel: "              "});
+			// 		}
+			with(dialogRows.add()){
+			var addTagChkBx = checkboxControls.add({checkedState:false, staticLabel:"add new tag to selection?"});
+			}
+
+			with(dialogRows.add()){
+			var txtEdit = textEditboxes.add({editContents:"", minWidth:170});
+			}
+
+			
+			
+			
 		// 	with(dialogRows.add()){
 		// 	var aGutter = staticTexts.add({staticLabel:"  ",minWidth:25});
 		// 	}
@@ -126,6 +145,8 @@ with(dlg) {
 		marker = addMarkerChkBx.checkedState;
 		select = add2SelChkBx.checkedState;
 		rmvLabel = rmvItemLblChkBx.checkedState;
+		edit = addTagChkBx.checkedState;
+		editStr = txtEdit.editContents;
 		
 		dlg.destroy();
 		
@@ -165,12 +186,28 @@ with(dlg) {
 							
 						}
 						
+						if(edit && select){
+							
+							api[i].label  =  editStr;
+							api[i].select(SelectionOptions.ADD_TO);
+							
+						}
+						
 					}
 	
 			
 					}catch(e){};
+			}// end of first for loop
+			
+			if(edit){
+				for(var j = 0; j < app.selection.length; j++){
+				try{
+					app.selection[i].label = editStr;
+					
+				}catch(e){}
+				
+				}
 			}
-
 		}else{
 		
 		dlg.destroy();
