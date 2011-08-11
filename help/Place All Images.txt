@@ -1,8 +1,8 @@
-theImagePlacer.jsx
+Place All Images.jsx
 
 ----------
 
-This script imports all images referenced in the xml structutre that comes from the MPO
+This script imports all images referenced in the xml structure that comes from the MPO.
 
 ----------
 

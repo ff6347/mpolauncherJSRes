@@ -1,12 +1,16 @@
-color_PAPER.jsx
+Tint-2-Mixedbalck.jsx
 
 ----------
 
-This script sets color of the selection to PAPER [C= 0, M = 0, Y = 0, K = 0]
+This script sets color of the selection 2:
+
+mixed black [ 80, 50, 50, 100 ]
+
 It will change the colors of:
 - images (bitmaps)
 - polygons (vectorforms)
 - rectangles (basic boxes)
+- ovals (circles)
 - paragraphs (all text in the selected paraphs)
 - rulers above text
 - rulers below text

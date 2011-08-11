@@ -1,8 +1,11 @@
-color_KEY.jsx
+Tint-2-Swatch.jsx
 
 ----------
 
-This script sets color of the selection to KEY [C= 0, M = 0, Y = 0, K = 100]
+This script sets color of the selection 2:
+
+the desired swatch color
+
 It will change the colors of:
 - images (bitmaps)
 - polygons (vectorforms)
@@ -22,4 +25,5 @@ PREREQUISITES:
 USAGE:
 
 Select an object on your page and hit "RUN".
+it calls a dialog with all the existing swatch colors in the active document
 

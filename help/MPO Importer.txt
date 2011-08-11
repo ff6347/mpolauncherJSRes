@@ -1,8 +1,8 @@
-MPO_Importer.jsx
+MPO Importer.jsx
 
 ----------
 
-This script is the main importer.
+This script is the main thing.
 
 It won't work without the right 
 	xml file,

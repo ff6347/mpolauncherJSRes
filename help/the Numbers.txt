@@ -1,4 +1,4 @@
-theNumbers.jsx
+The Numbers.jsx
 
 ----------
 

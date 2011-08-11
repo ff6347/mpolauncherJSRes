@@ -154,7 +154,7 @@ function makeNumbers(myDoc,myPage,theNumber,obj){
 // InDesign dialogs are prety fast
 
 function myUI(myDoc,myPageName,obj){
-	var myDialog = app.dialogs.add({name:"Make Some Numbers", canCancel:true});
+	var myDialog = app.dialogs.add({name:"Make The Numbers", canCancel:true});
 	with(myDialog){
 		//Add a dialog column.
 		with(dialogColumns.add()){
@@ -169,7 +169,7 @@ function myUI(myDoc,myPageName,obj){
 				
 				// another row
 				with(dialogRows.add()){
-				var txtPg = staticTexts.add({staticLabel:"Pages--> ",minWidth:100});
+				var txtPg = staticTexts.add({staticLabel:"2 Page--> ",minWidth:100});
 				var myPageDropdown = dropdowns.add({stringList: myDoc.pages.everyItem().name, selectedIndex: 0,minWidth:75 });
 		}
 

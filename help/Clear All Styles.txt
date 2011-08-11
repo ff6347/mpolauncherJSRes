@@ -1,0 +1,18 @@
+Clear All Styles.jsx
+
+----------
+
+This script cleans paragraph- character- and objectstyles.
+It will try to remove all styles.
+
+----------
+
+PREREQUISITES:
+
+1. Just a selection
+
+----------
+
+USAGE:
+
+This script has no user interface. Just click "RUN"

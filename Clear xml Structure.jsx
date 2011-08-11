@@ -1,8 +1,6 @@
 // a quick script for removing everything in the structure the safe way
 // written by fabian theblind
 // needs glue code for softies 
-#include "./meta/glue code.jsx";
-main();
 
 // SOME TEXT
 // Copyright (C) 2011 Fabian "fabiantheblind" Morón Zirfas
@@ -23,6 +21,9 @@ main();
 // along with this program.  If not, see <http://www.gnu.org/licenses/.
 
 
+#include "./meta/glue code.jsx";
+main();
+
 
 function main(){
 
@@ -33,13 +34,27 @@ function main(){
 	alert("No no no, you have no document.\nMaybe you should drink some coffee");
 	return;
 	}
-//	the soft way?
-	try{
-	untagAllxmlElements(myDoc);
-	}catch(e){
 	
-	
-	}
+	// var dlg =  app.dialogs.add({name:"the Link Button", canCancel:true});
+	// with(dlg){
+	// 	with(dialogColumns.add()){
+	// 		staticTexts.add({staticLabel:"Are You shure you want to clear the whole structure?"});
+	// 
+	// 	}
+	// }
+// 	if(dlg.show==true){
+// 	dlg.destroy();
+// 	}else{
+// 	dlg.destroy();
+// 	return;
+// 	}
+// //	the soft way?
+// 	try{
+// 	untagAllxmlElements(myDoc);
+// 	}catch(e){
+// 	
+// 	
+	// }
 //	the hard way?
 
 	myDoc.xmlElements.everyItem().remove();
