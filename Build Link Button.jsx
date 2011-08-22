@@ -2,14 +2,17 @@
 written by fabiantheblind 4 JM-2011
 */
 #include "./meta/glue code.jsx";
+var obj = new Object();
 
+obj.DEBUG = false;
+obj.WARNINGS = true;
 main();
 function main() {
 
 	var d;
 	// test for a doc
 	try { var d = app.activeDocument; } catch(e){
-		alert("No no no, you have no document.\nMaybe you should drink some coffee");
+	if(obj.WARNINGS) alert("No no no, you have no document.\nMaybe you should drink some coffee");
 		return;
 		}
 			
@@ -28,7 +31,7 @@ function main() {
 	try{
 	var myItemsListElement =  d.xmlElements.item(0).xmlElements.item("itemsList");
 	}catch(e){
-		alert("You need to import an xml with the importer");
+	if(obj.WARNINGS) alert("You need to import an xml with the importer");
 		return;
 	}
 	try{
@@ -39,7 +42,7 @@ function main() {
 			
 	}catch(e){
 		
-		alert("you have no xml structure.\nuse the MPO_Importer");
+	if(obj.WARNINGS) alert("you have no xml structure.\nuse the MPO_Importer");
 		return;
 		
 	}
@@ -98,6 +101,8 @@ function placeData(d , myPage , theItem){
 
 
 function makeButton(theItem, myPage, d){
+	if(obj.DEBUG) alert("DEBUG1: " + theItem + " in makeButton.\nlength of the item: "+theItem.length );
+	
 	this.name = "placeButtons";
 	this.xpath = "//artikel[@iArtikelNr='Art-Nr. " + theItem + "']";
 	this.apply = function(myElement, myRuleProcessor){
@@ -121,14 +126,20 @@ function makeButton(theItem, myPage, d){
 		var OY2 = OY1 + 30;
 		var OX2 = OX1 + 30;
 		var myOV01 = myPage.ovals.add();
+		
 		set_label(myOV01,"Art-Nr. " + theItem);
 		with (myOV01) {
 			geometricBounds = [OY1, OX1 ,OY2 , OX2];
 			applyObjectStyle(myNullObjStyle);	
 		}
-
+		try{
 		var myString =  myImages.xmlElements.item(0).xmlAttributes.item(1).value;
-
+		}catch(e){
+			
+			if(obj.WARNINGS) alert("there is no image available!");
+			
+			exit();
+		}
 		try {
 
 		
@@ -136,8 +147,8 @@ function makeButton(theItem, myPage, d){
 		myOV01.fit(FitOptions.CENTER_CONTENT);
 		myGroup.push(myOV01);
 		} catch (e) {
-		alert("there is no image available!");
-		
+			if(obj.WARNINGS) alert("there is no image available!");
+			exit();
 		}
 		
 		
@@ -150,6 +161,7 @@ function makeButton(theItem, myPage, d){
 		var RX2 = RX1 + 84.279;
 				
 		var myRect01 = myPage.rectangles.add();
+		
 				set_label(myRect01,"Art-Nr. " + theItem);
 		with (myRect01) {
 			geometricBounds = [RY1, RX1, RY2, RX2];
@@ -158,13 +170,20 @@ function makeButton(theItem, myPage, d){
 		
 		try{
 		var myFile  = File.openDialog("Choose the File \"Button_Lupe_Hintergrund.bmp\"");
+		if(!myFile){
+			if(obj.WARNINGS) alert("Are you shure?\nWithout the \"Button_Lupe_Hintergrund.bmp\" it looooooooks sillyyyyyy"); 
+			
+		}
 		myRect01.place(myFile);
 		myRect01.fit(FitOptions.CENTER_CONTENT);
 		//myRect01.fit(FitOptions.PROPORTIONALLY);
 		myRect01.fit(FitOptions.FRAME_TO_CONTENT);
 
 		myGroup.push(myRect01);
-		}catch(e){}
+		}catch(e){
+			
+			
+		}
 
 		
 		
@@ -177,6 +196,8 @@ function makeButton(theItem, myPage, d){
 		
 		
 		var myTF01 = myPage.textFrames.add();
+		if (obj.DEBUG) alert("DEBUG2: " + theItem + " in makeButton.\nlength of the item: "+theItem.length );
+		
 		set_label(myTF01,"Art-Nr. " + theItem);
 		
 		with (myTF01) {
@@ -318,7 +339,7 @@ function myUI(d, myPage,myPageName, myList,myItemsList){
 		
 		var preTheItem = myItemsList[myArtikelDropdown.selectedIndex];
 		var theItem = preTheItem.substring(4);
-
+		if (obj.DEBUG) alert("DEBUG: "+ theItem);
 		myDialog.destroy();
 		
  		myPage = d.pages.item(myPageName);

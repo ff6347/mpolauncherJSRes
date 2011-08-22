@@ -68,7 +68,7 @@ function prcs_getXPath(xpathChoice ,errorLog){
 				}
 
 			if((xpathChoice.item == true)){
-					xpath = "//artikel[@iArtikelNr='Art-Nr. "+theItem +"']";
+					xpath = "//artikel[@iArtikelNr='Art-Nr. "+xpathChoice.theItemNum +"']";
 					errorLog = errorLog+ "selected the following elements(xPath) " + xpath.toString() + "\n";
 				}
 				
@@ -99,6 +99,8 @@ function prcs_getGroupDatav02(myDoc,myPage,count,itemCounter, placeAllBool, focu
 	xpathChoice.normal = normalBool;
 	xpathChoice.small = smallBool;
 	xpathChoice.item = itemBool;
+	xpathChoice.theItemNum = theItem;
+	
 	
 	// select the xpath exprrssion
 	this.xpath = prcs_getXPath(xpathChoice, myErrorLog);
@@ -126,6 +128,7 @@ function prcs_getGroupData(myDoc,myPage,count,itemCounter, placeAllBool, focusBo
 	xpathChoice.normal = normalBool;
 	xpathChoice.small = smallBool;
 	xpathChoice.item = itemBool;
+	xpathChoice.theItemNum = theItem;
 	
 	// select the xpath exprrssion
 	this.xpath = prcs_getXPath(xpathChoice, myErrorLog);

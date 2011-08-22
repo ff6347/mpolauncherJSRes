@@ -3,6 +3,11 @@ written by fabiantheblind 4 JM-2011
 */
 #include "./meta/glue code.jsx";
 
+var obj = new Object();
+
+obj.DEBUG = false;
+obj.WARNINGS = true;
+
 main();
 function main() {
 
@@ -10,7 +15,7 @@ function main() {
 	var d;
 	// test for a doc
 	try { var d = app.activeDocument; } catch(e){
-		alert("No no no, you have no document.\nMaybe you should drink some coffee");
+	if(obj.WARNINGS)	alert("No no no, you have no document.\nMaybe you should drink some coffee");
 		return;
 		}
 		
@@ -26,7 +31,7 @@ function main() {
 	var myItemsListElement =  d.xmlElements.item(0).xmlElements.item("itemsList");
 	}catch(e){
 		
-		alert("you have no xml structure.\nuse the MPO_Importer");
+	if(obj.WARNINGS)	alert("you have no xml structure.\nuse the MPO_Importer");
 		return;
 		
 	}
@@ -37,7 +42,7 @@ function main() {
 	}
 	}catch(e){
 		
-		alert("you have no xml structure.\nuse the MPO_Importer");
+	if(obj.WARNINGS)	alert("you have no xml structure.\nuse the MPO_Importer");
 		return;
 		
 	}
@@ -122,7 +127,13 @@ function placeImages(theItem, myPage, d){
 	var myX1 = myTempBounds[1];
 	var myY2 = myTempBounds[2];
 	var myX2 = myTempBounds[3];
+	if(obj.DEBUG) alert(myImages.xmlElements.length);
 	
+	if(!myImages.xmlElements.length){
+		
+	if(obj.WARNINGS) alert("Your Article has no referenced images");
+	exit();
+	}
 
 	for (var i = 0; i<myImages.xmlElements.length ; i++){
 	
@@ -306,7 +317,7 @@ function myUI(d, myPage,myPageName, myList,myItemsList){
 		}
 
 		var preTheItem = myItemsList[myArtikelDropdown.selectedIndex];
-		alert(preTheItem);
+		if(obj.DEBUG) alert(preTheItem);
 		var theItem = preTheItem.substring(4);
 
 		myDialog.destroy();
@@ -320,7 +331,7 @@ function myUI(d, myPage,myPageName, myList,myItemsList){
 	}else{
 		
 		myDialog.destroy();
-		alert("all that thinking for nothing? Better luck nexttime!");
+		if(obj.DEBUG) alert("all that thinking for nothing? Better luck nexttime!");
 		
 	}
 
