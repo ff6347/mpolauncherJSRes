@@ -78,13 +78,15 @@ data.fileNames = ["JM_NEU_SAVE_0_d_blank_zoll",
 "JM_NEU_SAVE_15d_Features",
 "JM_NEU_SAVE_16_Bisstrich_Ziffern",
 "JM_NEU_SAVE_17a_Beschreibung_Marke",
+"JM_NEU_SAVE_17a1_Beschreibung_Marke",
 "JM_NEU_SAVE_17b_aufzaehlung_ranziehen",
 "JM_NEU_SAVE_17c_textflussende_ranziehen",
 "JM_NEU_SAVE_18_doubleblanks",
 "JM_NEU_SAVE_19a_Euro_hin",
 "JM_NEU_SAVE_19b_Euro_zurueck",
 "JM_NEU_SAVE_20a_gfL",
-"JM_NEU_SAVE_20b_gfL"];
+"JM_NEU_SAVE_20b_gfL",
+"JM_FUSS_FIXER"];
 
 
 main();
