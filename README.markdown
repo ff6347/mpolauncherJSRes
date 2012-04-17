@@ -1,4 +1,4 @@
-#These are the scripts used in the [MPO Launcher](http://fabiantheblind.github.com/)  
+#These are the scripts used in the [MPO Launcher](http://fabiantheblind.github.com/mpolauncher/)  
   
 // Copyright (C) 2012 Fabian "fabiantheblind" Morón Zirfas  
 // http://www.the-moron.net  
