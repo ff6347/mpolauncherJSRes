@@ -42,6 +42,7 @@ Ladet euch die Photoshop Konvertierungs [Aktionen hier runter](https://github.co
 ------------------------
 
 ###Für jedes Dokument  
+Vorab eine kleine Info zum InDesign PDF Export. Seit der CS 5.5 Version ist die Fortschrittanzeige des PDF Exports in Bedienfeld [Hintergrundaufgaben](http://helpx.adobe.com/de/indesign/using/exporting-publishing-pdf.html#background_tasks_panel) gewandert. Dieses findet ihr unter "Fenster/Hilfsprogramme/Hintergrundaufgaben". Nur damit ihr euch nicht wundert, dass euer InDesign nichts anzeigt beim export.    
   
 1. **HINTERGÜNDE AUSTAUSCHEN:** 
 Bitte tauscht die Lowres Hintergund Bilder gegen die Highres Hintergunrdbilder.
