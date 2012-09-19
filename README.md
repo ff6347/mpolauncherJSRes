@@ -43,6 +43,8 @@ Ladet euch die Photoshop Konvertierungs [Aktionen hier runter](https://github.co
 
 ###Für jedes Dokument  
   
+1. **HINTERGÜNDE AUSTAUSCHEN:** 
+Bitte tauscht die Lowres Hintergund Bilder gegen die Highres Hintergunrdbilder.
 1. **DATEIEN SAMMELN:** 
 Wenn eure Dokumente fertig gesetzt sind und für die Ausspielung bereit sind [sammelt ihr alle Daten mit InDesign](http://help.adobe.com/de_DE/indesign/cs/using/WSa285fff53dea4f8617383751001ea8cb3f-7060a.html#WSa285fff53dea4f8617383751001ea8cb3f-7058a). Dadurch sind alle Daten in einem Ordner und sind für die Konvertierung besser zu handhaben.  
 2. **DATEIEN KONVERTIEREN:**
