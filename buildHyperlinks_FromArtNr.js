@@ -209,7 +209,8 @@ function find(d){
 		// }
 				// if you are in debug mode you can see the hyperlinks in indesign and the PDF
 		if(mh_data.debug==true){
-			hl.visible = true; 
+			hl.visible = false; 
+			
 		}else{	
 			hl.visible = false;
 			}//close if else visible hyperlinks
