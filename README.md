@@ -25,8 +25,8 @@ Ladet euch die dazugehörige [Find Change Query "JM_ArtNr_only.xml"](https://raw
 3. **INDESIGN JOBOPTIONS:** 
 Ladet euch die Joboptions für den Druckkatalog und den Blätterkatalog [hier runter](https://github.com/downloads/fabiantheblind/mpolauncherJSRes/jm_2013_joboptions.zip)    
 4. Ladet die [Joboptions in euer InDesign](http://helpx.adobe.com/de/indesign/using/exporting-publishing-pdf.html#load_adobe_pdf_presets) **oder** legt sie in den PDF Vorgaben Ordner
-Mac OS: User/[Benutzername]/Library/Application Support/Adobe/Adobe PDF
-Windows XP: Dokumente und Einstellungen\[Benutzername\Anwendungsdaten\Adobe\Adobe PDF
+Mac OS: User/[Benutzername]/Library/Application Support/Adobe/Adobe PDF  
+Windows XP: Dokumente und Einstellungen\[Benutzername\Anwendungsdaten\Adobe\Adobe PDF  
 Windows Vista und Windows 7: Benutzer\[Benutzername\AppData\Roaming\Adobe\Adobe PDF
 Sie *sollten* nun in eurem InDesign unter dem PDF export verfügbar sein.  
 5. **CMYK PROFILE:** 
