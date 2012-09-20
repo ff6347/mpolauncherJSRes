@@ -64,6 +64,24 @@ Macht eine Kopie von dem "Links" Ordner der dabei erzeugt wurde. Nennt eine "RGB
 9. Exportiert das Druckkatalog PDF mit den oben genannten "Druckkatalog vorgaben"  
 10. Benennt alle PDF Dateien mit ihrem Seitenbereich. Es sollten nie mehr als 8 Seiten in einem PDF Dokument sein
 
+
+-----------------  
+
+###Ein Skript für Bücher  
+Wenn ihr (@olli) zuviele einzelne InDesign Dateien habe und ein Skript auf alle anwedne müsst, könnt ihr das manuell durchklicken oder:  
+- Ihr erzeugt ein Buch aus all diesen Dateien.  
+- Ladet euch dieses Skript runter [doScriptForBooks.jsx](http://mediaplanungonline.de//hilfe/scriptfiles/doScriptForBooks.zip)
+- Legt es ebenfalls in euren 'Script Panel' Ordner  
+- Und führt es aus.  
+
+Das Skript wird euch nach der Skript Datei fragen die auf alle Dokumente im Buch angewandt werden soll.
+- Es wird jedes Dokument öffnen  
+- Das Skript ausführen  
+- speichern
+- und das Dokument schliessen  
+
+-----------------  
+
 ###Dokumente mit RGB/CMYK verbinden    
 
 Um einen Ordner zu entkoppeln/verbinden vom Dokument.  
